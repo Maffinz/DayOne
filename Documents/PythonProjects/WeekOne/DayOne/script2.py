@@ -13,4 +13,4 @@ def isPermutate(str_one,str_two):
                 break
         if found == False:
             return False
-    return True)
+    return True
