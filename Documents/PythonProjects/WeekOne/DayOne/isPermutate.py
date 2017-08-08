@@ -1,18 +1,21 @@
 #!/usr/bin/python
 
 def isPermutate(str_one,str_two):
-    startOn = 0
     for fChar in str_one:
-        for ite in xrange(len(str_two)):
-            if fChar == str_two[ite + startOn]:
-                if (ite+startOn) == len(str_two):
-                    str_two = str_two[:ite+startOn]
-                elif (ite+startOn) == 0:
+        tempSize = len(str_two)
+        for ite in xrange(tempSize):
+            if fChar == str_two[ite]:
+                if ite == len(str_two):
+                    str_two = str_two[:ite]
+                    break
+                elif ite == 0:
                     str_two = str_two[1:]
+                    break
                 else:
-                    str_two = str_two[:ite+startOn] + str_two[ite+startOn+1:]
-            else:
-                return False
+                    str_two = str_two[:ite] + str_two[ite+1:]
+                    break
+        if tempSize == len(str_two):
+            return False
     return True
 
 
